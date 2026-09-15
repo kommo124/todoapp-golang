@@ -1,13 +1,16 @@
 package router
 
 import (
-	"todoapp/internal/middlewares"
+	"database/sql"
 
 	"github.com/gin-gonic/gin"
+
+	"todoapp/internal/middlewares"
 )
 
-func SetupRouter() {
+func SetupRouter(db *sql.DB) *gin.Engine {
 	r := gin.Default()
 	r.Use(middlewares.CorsMiddleware())
 
+	return r
 }
